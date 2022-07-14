@@ -81,10 +81,37 @@ header {
     letter-spacing: 0.5px;
 }
 
-.logo {}
+.logo {
+    font-size: 1.5rem;
+    display: grid;
+    gap: 20px;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+}
+.logo img {
+    width: 2rem;
+}
 
 .menu {
     list-style: none;
+    display: grid;
+    gap: 15px;
+}
+
+.menu li {
+    cursor: pointer;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.menu li:hover {
+    transform: scale(102%);
+}
+
+.sidebar-icon {
+    width: 1.2rem;
 }
 
 /* MAIN SECTION */
