@@ -1,24 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --main-color: #1992d4;
+    --highlight-color: #f0b429;
+    --light-color: #e2e8f0;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+h4 {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+p {
+    color: gray;
+    font-size: 0.8rem;
+    font-weight: 400;
 }
 
 button {
     cursor: pointer;
+    color: white;
+    border: none;
 }
 
 .wrapper {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr;
+    grid-template-rows: 150px 1fr;
 }
 
 /* HEADER SECTION */
 
 header {
-    grid-column: 2/ -1;
+    grid-column: 2 / -1;
     display: grid;
     grid-template-columns: 1fr repeat(3, auto);
     grid-template-rows: 1fr 2fr;
@@ -27,10 +59,6 @@ header {
 .search-button {
     width: 25px;
     height: 25px;
-    background: url("images/icons/search.svg");
-    background-position: center;
-    background-size: cover;
-    border: none;
 }
 
 .greeting {
@@ -47,6 +75,10 @@ header {
     display: grid;
     gap: 50px;
     align-content: start;
+    background-color: var(--main-color);
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .logo {}
@@ -65,10 +97,10 @@ main {
     grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr 1fr;
     padding: 20px;
+    background-color: var(--light-color);
 }
 
 main section h2 {
-    font-size: 16px;
     grid-column: 1 /-1;
 }
 
@@ -76,24 +108,119 @@ main section h2 {
     grid-row: span 2;
     display: grid;
     gap: 15px;
-    grid-template-rows: 20px repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 20px 1fr;
 }
 
-.announcements {
+.cards-wrapper {
     display: grid;
-    grid-template-rows: 20px repeat(3, 1fr);
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-.announcements div {
-    border-bottom: 1px solid lightgray;
+.card {
+    border-left: 6px solid var(--highlight-color);
+    display: grid;
+    align-content: center;
+    padding: 10px;
+    padding-left: 20px;
 }
 
-.announcements div:last-child {
-    border-bottom: none;
+.card-controls {
+    justify-self: end;
+    margin: 10px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
+.card,
+.trending-wrapper,
+.announcements-wrapper {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 1px 3px lightgray;
+}
+
+.card button {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+}
+
+.card button:hover {
+    transform: scale(110%);
+}
+
+.favourite-button {
+    background-image: url("images/icons/fav.svg");
+    background-size: cover;
+}
+
+.share-button {
+    background-image: url("images/icons/share.svg");
+    background-size: cover;
+}
+
+.more-button {
+    background-image: url("images/icons/more.svg");
+    background-size: cover;
+}
+
+.announcements,
 .trending {
     display: grid;
-    grid-template-rows: 20px repeat(4, 1fr);
+    gap: 15px;
+    grid-template-rows: 20px 1fr;
+}
+
+.announcements-wrapper {
+    display: grid;
+    gap: 5px;
+    grid-template-rows: repeat(3, auto);
+    padding: 25px 20px;
+    align-items: end;
+}
+
+.announcements-wrapper div {
+    padding-top: 5px;
+    border-top: 1px solid lightgray;
+}
+
+.announcements-wrapper div:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+.trending-wrapper {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.trending-card {
+    display: grid;
+    column-gap: 5px;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+
+.trending-card img {
+    width: 2rem;
+    grid-row: span 2;
+    border-radius: 50%;
+    background-color: rgb(246, 242, 235);
+    background-size: 100%;
+}
+
+.nametag,
+.project-title {
+    font-size: 0.8rem;
+}
+
+.project-title {
+    font-weight: 300;
+    color: gray;
 }
