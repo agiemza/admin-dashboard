@@ -55,7 +55,6 @@ header {
     grid-column: 2 / -1;
     display: grid;
     gap: 15px;
-    grid-template-rows: auto 1fr;
     box-shadow: 0 1px 5px lightgray;
     padding: 15px 35px;
 }
@@ -158,6 +157,10 @@ input[type="search"] {
 
 .logo img {
     width: 2rem;
+}
+
+.hamburger {
+    display: none;
 }
 
 .menu {
@@ -291,7 +294,7 @@ main section h2 {
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     align-items: center;
-    padding: 25px 20px;
+    padding: 25px 15px;
 }
 
 .trending-card {
@@ -318,4 +321,67 @@ main section h2 {
 .project-title {
     font-weight: 300;
     color: gray;
+}
+
+@media (max-width: 810px) {
+
+    .wrapper {
+        grid-template-columns: auto 1fr;
+    }
+
+    .header-bottom {
+        gap: 5px;
+    }
+
+    .sidebar-label,
+    .logo {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        position: relative;
+        border-top: 2px solid white;
+        width: 24px;
+        min-height: 24px;
+        box-sizing: content-box;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: "";
+        width: 24px;
+        border-top: 2px solid white;
+        position: absolute;
+    }
+
+    .hamburger::before {
+        bottom: 12px;
+    }
+
+    .hamburger::after {
+        bottom: 0;
+    }
+
+    .menu li {
+        gap: 0;
+    }
+}
+
+@media (max-width: 630px) {
+    .username {
+        display: none;
+    }
+
+    .header-bottom {
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+    }
+
+    .greeting {
+       display: none;
+    }
+    main {
+        grid-template-columns: 1fr;
+    }
 }
