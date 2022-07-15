@@ -75,7 +75,7 @@ header {
 }
 
 .avatar {
-    width: 2rem !important;
+    width: 2rem;
 }
 
 .username {
@@ -109,6 +109,7 @@ input[type="search"] {
 
 .greeting img {
     grid-row: 1 / -1;
+    width: 3rem;
 }
 
 .greeting-message {
