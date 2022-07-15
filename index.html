@@ -14,6 +14,8 @@
         <header>
 
             <div class="header-top">
+                <div class="hamburger">
+                </div>
                 <img src="images/icons/search.svg" alt="Search icon">
                 <input type="search" name="search" id="search">
                 <img src="images/icons/bell.svg" alt="Notifications icon">
@@ -41,10 +43,7 @@
                 <img src="images/icons/logo.svg" alt="Logo">
                 <div>Dashboard</div>
             </div>
-
-            <div class="hamburger">
-            </div>
-
+            <div class="close">x</div>
             <ul class="menu">
                 <li>
                     <img src="images/icons/home.svg" alt="Home icon" class="sidebar-icon">
@@ -206,6 +205,20 @@
 
         </main>
     </div>
+    <script>
+        const hamburger = document.querySelector(".hamburger")
+        const close = document.querySelector(".close")
+        function toggleMenu({ target }) {
+            const sidebar = document.querySelector(".sidebar")
+            if (sidebar.style.left !== "0px") {
+                sidebar.style.cssText = "left: 0px;"
+            } else {
+                sidebar.style.cssText = `left: -175px;`
+            }
+        }
+        hamburger.addEventListener("click", toggleMenu)
+        close.addEventListener("click", toggleMenu)
+    </script>
 </body>
 
 </html>
